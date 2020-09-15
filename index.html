@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script charset="utf-8" src="vue.js?v=1"></script>
+    <script async charset="utf-8" src="script-todo.js?v=2.6"></script>
+    <link rel="stylesheet" type="text/css" href="Style-todo.css?v=2.2">
+    <title>Todo-list</title>
+</head>
+<body>
+<div id="bodypage">
+    <!-- Темный экран с запросом подтверждения-->
+    <div is="confirmation"
+         v-on:yes="yesFunc()"
+         v-on:no="cancelFunc()"></div>
+
+ <header>
+    <button class="btn-style"
+            v-on:click="choosePage(1)">Главная страница</button>
+
+     <button class="btn-style"
+            v-on:click="choosePage(2)">Редактор Todo-list</button>
+ </header>
+    <div class="page"
+         v-if="page == 1">
+        <div class="align">
+            <input v-if="idChanger === 1"
+                   value="Отменить изменения"
+                   v-on:click="eventChanger(idChanger)"
+                   type="button"
+                   class="btn">
+
+            <input  v-if="idChanger === 2"
+                    v-on:click="eventChanger(idChanger)"
+                    value="Возобновить изменения"
+                    type="button"
+                    class="btn">
+        </div>
+
+        <div class="page">
+            <button class="btn-style-opt"
+                    v-on:click="newTodo">Создать новый Todo-list</button>
+        </div>
+        <h1 v-if="todoList.length != 0">Список задач</h1>
+        <div class="check-list-buble">
+            <ul class="check-list">
+                <li
+                        class="todoName"
+                        is="add-todo"
+                        v-for="(todo, index) in todoList"
+                        v-bind:key="index"
+                        v-bind:value="index + 1"
+                        v-bind:title="todo.title"
+                        v-bind:subtitle="todo.todosShown"
+                        v-on:remove="confirmationF(index)"
+                        v-on:change="changeTodoList(index)"
+                ></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page" v-if="page == 2">
+        <h1>Редактор Todo-list</h1>
+        <div class="align">
+        <button class="btn" v-on:click="addNewTodo">Сохранить Todo-list</button>
+        <button class="btn" v-on:click="confirmationF(0, 'clearList')">Очистить Todo-list</button>
+        </div>
+        <div class="todoField">
+        <div class="divInput" id="nameTodo">
+            <input type="text"
+                   class="inputField"
+                   placeholder="Название списка задач"
+                   v-model="name">
+        </div>
+
+        <div class="divInput" id="nameTodo">
+            <input type="text"
+                   class="inputField"
+                   placeholder="Напишите сюда задачу"
+                   v-model="task">
+            <button class="btn-style-add" v-on:click="addItem">+</button>
+        </div>
+
+        <ul>
+            <li     class="taskList"
+                    v-bind:value="index"
+                    v-for="(item, index) in list"> {{ item }}
+
+            <input class="chbx"
+                   type="checkbox"
+                   v-bind:name="index"
+                   v-bind:checked="doneList[doneList.indexOf(index)]"
+                   v-on:click="FuncTask(index)">
+
+            <button class="btnremove" v-on:click="changeFunc(index)"> Изменить </button>
+            <button class="btnremove" v-on:click="confirmationF(index, 'clearTodo')"> Удалить </button>
+            </li>
+        </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

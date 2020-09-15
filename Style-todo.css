@@ -1,0 +1,241 @@
+@-webkit-keyframes fade-in {   0% { opacity: 0.1; }   100% { opacity: 1; }   }
+@-moz-keyframes    fade-in {   0% { opacity: 0.1; }   100% { opacity: 1; }   }
+@-o-keyframes      fade-in {   0% { opacity: 0.1; }   100% { opacity: 1; }   }
+@keyframes         fade-in {   0% { opacity: 0.1; }   100% { opacity: 1; }   }
+
+#bodypage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-animation: fade-in 1s linear;
+    -moz-animation: fade-in 1s linear;
+    -o-animation: fade-in 1s linear;
+    animation: fade-in 1s linear;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    height: 10%;
+    min-height: 150px;
+    background-color: blue;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-style {
+    display: flex;
+    width: 25vw;
+    min-width: 25vw;
+    font-size: 2.3vw;
+    margin: 1vw;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: yellow;
+}
+
+.btn-style:active {
+    background-color: sandybrown;
+}
+
+.btn-style-opt {
+    display: flex;
+    margin: 1vw;
+    width: 50%;
+    min-width: 50%;
+    font-size: 2vw;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: aqua;
+    z-index: 2;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    background-color: lightgrey;
+    border: 1px solid black;
+    height: max-content;
+    -webkit-animation: fade-in 1.5s linear;
+    -moz-animation: fade-in 1.5s linear;
+    -o-animation: fade-in 1.5s linear;
+    animation: fade-in 1.5s linear;
+}
+
+.check-list-buble {
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    max-width: 500px;
+}
+
+.check-list {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 1.5vw;
+}
+
+.todoName {
+    background-color: blueviolet;
+    margin: 2vw;
+    list-style-type: decimal;
+}
+
+.blackBackground {
+    position: fixed;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.57);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.confWindow {
+    display: flex;
+    width: 30vw;
+    height: 15vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.confWindow p {
+    font-size: 2vw;
+}
+
+.todoField {
+    display: flex;
+    flex-direction: column;
+}
+
+.divInput {
+    display: flex;
+    width: 100%;
+    height: max-content;
+    justify-content: flex-start;
+}
+
+.inputField {
+    width: 30vw;
+    height: 3vw;
+    margin: 1vw;
+    font-size: 2.5vw;
+}
+
+.btn-style-add {
+    display: flex;
+    width: 5vw;
+    min-width: 5vw;
+    font-size: 2.3vw;
+    margin: 1vw;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: yellow;
+}
+
+.taskList {
+    flex-direction: column;
+    list-style-type: disc;
+}
+
+.align {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn {
+    display: flex;
+    width: 20vw;
+    font-size: 1.3vw;
+    margin: 1vw;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: red;
+}
+
+@media only screen
+and (orientation: portrait)
+{
+    body{
+        font-size: 3vw;
+    }
+
+    .page {
+        max-width: 100%;
+    }
+
+    .check-list {
+        flex-direction: column;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .check-list-buble {
+        flex-direction: column;
+        max-width: 90%;
+        width: 90%;
+    }
+
+    .todoName {
+        background-color: blueviolet;
+        margin: 2vw;
+        list-style-type: decimal;
+        max-width: 70%;
+        width: 70%;
+        font-size: 6vw;
+    }
+
+    .btn-style {
+        width: 35vw;
+        min-width: 35vw;
+        font-size: 7.3vw;
+        margin: 1vw;
+    }
+
+    .btn-style-opt {
+        width: 60%;
+        min-width: 60%;
+        font-size: 5vw;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 5vw;
+        margin: 1vw;
+    }
+
+    .todoField {
+        width: 90%;
+        height: max-content;
+        min-height: max-content;
+    }
+
+    .divInput {
+        height: max-content;
+        margin: 1vw;
+    }
+
+    .divInput > input {
+        width: 100%;
+        height: 4.5vw;
+        font-size: 4vw;
+    }
+
+    .taskList {
+        font-size: 6vw;
+    }
+}
